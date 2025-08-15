@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kimberley Admin Panel</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="img/logo.jpg" alt="Kimberley Logo">
+                <span>Kimberley</span>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li class="active"><a href="#"><i class="fas fa-home"></i> Hero <span class="status-dot green"></span></a></li>
+                    <li><a href="#"><i class="fas fa-video"></i> Video</a></li>
+                    <li><a href="#"><i class="fas fa-box-open"></i> Packages</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Destinations</a></li>
+                    <li><a href="#"><i class="fas fa-hotel"></i> Hotels</a></li>
+                    <li><a href="#"><i class="fas fa-images"></i> Gallery</a></li>
+                    <li><a href="#"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="navbar">
+                <div class="admin-profile">
+                    <span>Admin</span>
+                    <i class="fas fa-user-circle"></i>
+                    <i class="fas fa-search"></i>
+                </div>
+            </header>
+
+            <section class="hero-section-admin">
+                <h2>Hero Section</h2>
+                <div class="hero-cards-container">
+                    </div>
+
+                <div class="hero-form-container">
+                    <h3>Edit Hero Item</h3>
+                    <form id="heroEditForm">
+                        <div class="image-upload-area">
+                            <img id="previewImage" src="" alt="Image Preview" class="image-preview">
+                            <i class="fas fa-image"></i>
+                            <input type="file" id="heroImageUpload" accept="image/*" style="display: none;">
+                            <button type="button" id="uploadButton"><i class="fas fa-upload"></i> Upload</button>
+                        </div>
+                        <div class="form-fields">
+                            <div class="form-group">
+                                <label for="destination">Destination :</label>
+                                <input type="text" id="destination" maxlength="80" placeholder="eg. BAGAN">
+                            </div>
+                            <div class="form-group">
+                                <label for="fromWhere">From Where :</label>
+                                <input type="text" id="fromWhere" maxlength="80"placeholder="eg. Mandalay Myanmar">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-ok">OK</button>
+                                <button type="button" class="btn btn-cancel" id="cancelButton">CANCEL</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+    <section class="Pcontainer" id="Pcontainer">   
+        <div class="header">
+            <h1>Popular Packages Section</h1>
+            <button class="change-background-btn" id="open-background-modal">
+                <i class="fas fa-edit"></i> Change Background
+            </button>
+        </div>
+
+        <div class="packages-grid">
+            </div>
+
+        <div class="edit-form-container" style="display: none;">
+            <div class="edit-form-box">
+                <div class="image-upload-area">
+                    <img id="preview-image" src="" alt="Package Image" style="display: none;">
+                    <div class="upload-icon-text" id="upload-placeholder">
+                        <i class="fas fa-image fa-3x"></i>
+                        <p>Upload</p>
+                    </div>
+                    <input type="file" id="image-upload" accept="image/*" style="display: none;">
+                    <button class="upload-button" id="trigger-image-upload">Upload</button>
+                </div>
+                <div class="form-fields">
+                    <div class="form-group">
+                        <label for="package-name">Name :</label>
+                        <input type="text" id="package-name"maxlength="80" placeholder="eg. Adventure Explorer">
+                    </div>
+                    <div class="form-group">
+                        <label for="package-caption">Caption :</label>
+                        <input type="text" id="package-caption" maxlength="80"placeholder="eg. 7 days of adventure including hiking, sightseeing, and cultural experiences.">
+                    </div>
+                    <div class="form-group">
+                        <label for="package-price">Price :</label>
+                        <input type="text" id="package-price" maxlength="80"placeholder="eg. $ 2299 per person">
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn btn-ok" id="save-changes">OK</button>
+                        <button class="btn btn-cancel" id="cancel-edit">CANCEL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+
+    <div id="background-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button" id="close-background-modal">&times;</span>
+            <h2>Change Section Background</h2>
+            <div class="image-upload-area modal-upload-area">
+                <img id="preview-background-image" src="" alt="Background Image" style="display: none;">
+                <div class="upload-icon-text" id="upload-background-placeholder">
+                    <i class="fas fa-image fa-3x"></i>
+                    <p>Upload Background</p>
+                </div>
+                <input type="file" id="background-image-upload" accept="image/*" style="display: none;">
+                <button class="upload-button" id="trigger-background-image-upload">Upload</button>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-ok" id="save-background-changes">OK</button>
+                <button class="btn btn-cancel" id="cancel-background-changes">CANCEL</button>
+            </div>
+        </div>
+    </div>
+</section>    
+            
+        </main>
+    </div>
+
+    <script src="script2.js"></script>
+</body>
+</html>

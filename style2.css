@@ -1,0 +1,823 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #3f51b5; /* A shade of blue */
+    --secondary-color: #f5f5f5; /* Light grey */
+    --text-color: #333;
+    --light-text-color: #666;
+    --border-color: #ddd;
+    --card-bg: #fff;
+    --button-ok-bg: #4CAF50; /* Green */
+    --button-cancel-bg: #f44336; /* Red */
+    --button-primary-bg: #e91e63; /* Pink for Change Background */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.sidebar .logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.sidebar .logo span {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.sidebar .nav-menu ul {
+    list-style: none;
+}
+
+.sidebar .nav-menu ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar .nav-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .nav-menu ul li a:hover,
+.sidebar .nav-menu ul li.active a {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar .nav-menu ul li a i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: auto;
+}
+
+.status-dot.green {
+    background-color: #4CAF50;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--card-bg);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.admin-profile span {
+    font-weight: 500;
+    color: var(--light-text-color);
+}
+
+.admin-profile i {
+    font-size: 1.2rem;
+    color: var(--light-text-color);
+    cursor: pointer;
+}
+
+/* Hero Section Admin */
+.hero-section-admin {
+    padding: 30px;
+    flex-grow: 1;
+}
+
+.hero-section-admin h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.hero-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.hero-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 15px; /* Space for the text below the image */
+}
+
+.hero-card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-card-edit {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+.hero-card-edit:hover {
+    background-color: #eee;
+}
+
+.hero-card-content {
+    padding: 15px 20px 0;
+}
+
+.hero-card-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.hero-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.hero-card-tag {
+    background-color: var(--secondary-color);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--light-text-color);
+}
+
+/* Hero Form Container */
+.hero-form-container {
+    background-color: var(--card-bg);
+    border: 2px dashed var(--border-color);
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero-form-container h3 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+#heroEditForm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+    max-width: 800px;
+    justify-content: center;
+}
+
+/* --- KEY CHANGES HERE FOR IMAGE UPLOAD AREA --- */
+.image-upload-area {
+    width: 250px;
+    height: 180px; /* Keep height for consistent sizing */
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Arrange children vertically */
+    align-items: center;
+    justify-content: center; /* Center content when no image */
+    cursor: pointer;
+    overflow: hidden; /* Important to clip image if it goes out of bounds */
+    position: relative; /* For absolute positioning of children */
+    background-color: var(--secondary-color);
+    padding-bottom: 40px; /* Add padding at the bottom to make space for the button */
+}
+
+.image-upload-area .image-preview {
+    width: 100%;
+    height: 100%; /* Image fills the entire space */
+    object-fit: cover;
+    position: absolute; /* Position absolutely to cover the background/icon */
+    top: 0;
+    left: 0;
+    display: none; /* Hidden by default */
+}
+
+.image-upload-area i.fas.fa-image {
+    font-size: 3rem;
+    color: var(--light-text-color);
+    margin-bottom: 10px; /* Keep some margin if button is below */
+    z-index: 1; /* Ensure icon is above preview when shown */
+}
+
+.image-upload-area button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s ease;
+    position: absolute; /* Position the button absolutely */
+    bottom: 10px; /* Place it at the bottom of the container */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for perfect centering */
+    z-index: 2; /* Ensure button is above both icon and image preview */
+}
+
+.image-upload-area button:hover {
+    background-color: #303f9f;
+}
+/* --- END KEY CHANGES --- */
+
+.form-fields {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 300px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input[type="text"] {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end; /* Aligns buttons to the right */
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ok {
+    background-color: var(--button-ok-bg);
+    color: #fff;
+}
+
+.btn-ok:hover {
+    background-color: #43a047;
+}
+
+.btn-cancel {
+    background-color: var(--button-cancel-bg);
+    color: #fff;
+}
+
+.btn-cancel:hover {
+    background-color: #e53935;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.Pcontainer {
+/* From https://css.glass */
+background-image: url('img/i1.jpg');
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+
+
+    border-radius: 8px;
+    padding: 30px;
+    width: 100%;
+    /* max-width: 1200px; */
+    z-index: 1; /* Ensure container is above the background */
+    position: relative;
+}
+/* ... (Existing CSS styles for header, packages-grid, package-card, edit-form-container) ... */
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-top: 0;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.modal-upload-area {
+    margin: 20px auto;
+    width: 90%; /* Adjust width for modal */
+    height: 200px; /* Adjust height for modal */
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* Ensure existing image-upload-area styles apply to both */
+.image-upload-area {
+    width: 300px; /* Fixed width for the image upload area */
+    height: 250px; /* Fixed height for consistency */
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #e9e9e9;
+    position: relative;
+    overflow: hidden; /* Ensure image doesn't overflow */
+}
+
+/* Add specific styles if you need to override for modal's upload area */
+.modal-upload-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.header h1 {
+    font-size: 28px;
+    color: #333;
+    margin: 0;
+    background-color: white;
+    padding: 5px;
+}
+
+.change-background-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.change-background-btn i {
+    margin-right: 8px;
+}
+
+.change-background-btn:hover {
+    background-color: #c82333;
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+    background-color: #00000000;
+}
+
+.package-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+}
+
+.package-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.edit-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s;
+}
+
+.edit-icon:hover {
+    background-color: #c82333;
+}
+
+.package-card-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.package-card-content h3 {
+    font-size: 20px;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.package-card-content p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.package-card-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #dc3545;
+    margin-bottom: 20px;
+}
+
+.package-card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.package-card-actions .book-now-btn,
+.package-card-actions .see-more-info {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.package-card-actions .book-now-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.package-card-actions .book-now-btn:hover {
+    background-color: #0056b3;
+}
+
+.package-card-actions .see-more-info {
+    background-color: transparent;
+    color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.package-card-actions .see-more-info:hover {
+    background-color: #e9f5ff;
+}
+
+/* Edit Form Styles */
+.edit-form-container {
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    border: 1px dashed #ccc;
+}
+
+.edit-form-box {
+    display: flex;
+    gap: 40px;
+}
+
+.image-upload-area {
+    width: 300px; /* Fixed width for the image upload area */
+    height: 250px; /* Fixed height for consistency */
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #e9e9e9;
+    position: relative;
+    overflow: hidden; /* Ensure image doesn't overflow */
+}
+
+.image-upload-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.upload-icon-text {
+    text-align: center;
+    color: #888;
+}
+
+.upload-icon-text i {
+    margin-bottom: 10px;
+}
+
+.upload-button {
+    margin-top: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.upload-button:hover {
+    background-color: #0056b3;
+}
+
+.form-fields {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: block;
+    align-items: center;
+}
+
+.form-group label {
+    /* flex-basis: 80px; */
+    font-weight: bold;
+    color: #555;
+    /* margin-right: 15px; */
+    white-space: nowrap; /* Prevent label from wrapping */
+}
+
+.form-group input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.form-group input::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn-ok {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-ok:hover {
+    background-color: #0056b3;
+}
+
+.btn-cancel {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-cancel:hover {
+    background-color: #5a6268;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .change-background-btn {
+        margin-top: 15px;
+    }
+    .packages-grid {
+        grid-template-columns: 1fr;
+    }
+    .edit-form-box {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .image-upload-area {
+        width: 100%;
+        height: 200px;
+    }
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .form-group label {
+        margin-bottom: 5px;
+        flex-basis: auto;
+    }
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* ... (Existing responsive CSS) ... */
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+    .modal-upload-area {
+        width: 100%;
+    }
+}
+
+
